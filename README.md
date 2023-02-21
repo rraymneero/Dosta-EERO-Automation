@@ -19,7 +19,8 @@ https://testrail.eero.amazon.dev/index.php?/tests/view/172467
 
 Stress reboot Code:
 
-Stress reboot code.txt
+[Stress reboot code.txt](https://github.com/rraymneero/Dosta-EERO-Automation/files/10792337/Stress.reboot.code.txt)
+
 
     import time
 
