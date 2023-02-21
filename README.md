@@ -21,72 +21,72 @@ Stress reboot Code:
 
 Stress reboot code.txt
 
-  import time
+    import time
 
-  from selenium import webdriver
+    from selenium import webdriver
 
-  from selenium.webdriver.common.keys import Keys
+    from selenium.webdriver.common.keys import Keys
 
-  from selenium.webdriver.firefox.service import Service
+    from selenium.webdriver.firefox.service import Service
 
-  from webdriver_manager.firefox import GeckoDriverManager
+    from webdriver_manager.firefox import GeckoDriverManager
 
-  from selenium.webdriver.common.by import By
+    from selenium.webdriver.common.by import By
 
-  driver = webdriver.Firefox(service=Service(executable_path=GeckoDriverManager().install()))
+    driver = webdriver.Firefox(service=Service(executable_path=GeckoDriverManager().install()))
 
-  driver.get("https://admin.stage.e2ro.com/networks/402079")
+    driver.get("https://admin.stage.e2ro.com/networks/402079")
 
-  driver.find_element(By.XPATH, '/html/body/div/div/div[2]/div/div/div/button').click()
+    driver.find_element(By.XPATH, '/html/body/div/div/div[2]/div/div/div/button').click()
 
-  time.sleep(60)
+    time.sleep(60)
 
-  stress_itr = 5
+    stress_itr = 5
 
-  b = 0
+    b = 0
 
-  for i in range(0, stress_itr):
+    for i in range(0, stress_itr):
 
-  print("iterations:", i)
+    print("iterations:", i)
 
-  driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
+    driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
 
-      time.sleep(10)
+        time.sleep(10)
 
-      driver.find_element(By.XPATH, "//button[text()='Reboot']").click()
+        driver.find_element(By.XPATH, "//button[text()='Reboot']").click()
 
-      print(driver.title)
+        print(driver.title)
 
-      time.sleep(170)
+        time.sleep(170)
 
-      driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
+        driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
 
-      time.sleep(10)
+        time.sleep(10)
 
-      if driver.find_element(By.XPATH, "//*[@class='label label-default']").text == "0":
+        if driver.find_element(By.XPATH, "//*[@class='label label-default']").text == "0":
 
-          print("False, Iteration has failed, proceeding to next Iteration")
+            print("False, Iteration has failed, proceeding to next Iteration")
 
-      else:
+        else:
 
-          driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
+            driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
 
-          driver.find_element(By.XPATH, "//a[@class='collapsed' and text()='Connected Devices']").click()
+            driver.find_element(By.XPATH, "//a[@class='collapsed' and text()='Connected Devices']").click()
 
-          time.sleep(10)
+            time.sleep(10)
 
-          text = driver.find_element(By.XPATH, "//div[@class='eo-table eo-table-striped ']").text
+            text = driver.find_element(By.XPATH, "//div[@class='eo-table eo-table-striped ']").text
 
-          print(text)
+            print(text)
 
-          time.sleep(10)
+            time.sleep(10)
 
-          driver.find_element(By.XPATH, "//a[@class='' and text()='Connected Devices']").click()
+            driver.find_element(By.XPATH, "//a[@class='' and text()='Connected Devices']").click()
 
-          time.sleep(60)
+            time.sleep(60)
 
-          driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
+            driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
 
-          b = b+1
+            b = b+1
 
-  print(b, "out of 5")
+    print(b, "out of 5")
