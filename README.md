@@ -1,4 +1,6 @@
-# Dosta-EERO-Reboot Stress Automation
+
+# Dosta-EERO-Automation
+Dosta-EERO-Reboot Stress Automation
 
 [Jira] CONN-25675- https://eeroinc.atlassian.net/browse/CONN-25675
 
@@ -18,74 +20,76 @@ https://testrail.eero.amazon.dev/index.php?/tests/view/172467
 
 Stress reboot Code:
 
-[Stress reboot code.txt](https://github.com/rraymneero/Dosta-EERO-Automation/files/10792088/Stress.reboot.code.txt)
 
-      import time
+[Stress reboot code.txt](https://github.com/rraymneero/Dosta-EERO-Automation/files/10792337/Stress.reboot.code.txt)
 
-      from selenium import webdriver
 
-      from selenium.webdriver.common.keys import Keys
+    import time
 
-      from selenium.webdriver.firefox.service import Service
+    from selenium import webdriver
 
-      from webdriver_manager.firefox import GeckoDriverManager
+    from selenium.webdriver.common.keys import Keys
 
-      from selenium.webdriver.common.by import By
- 
-      driver = webdriver.Firefox(service=Service(executable_path=GeckoDriverManager().install()))
+    from selenium.webdriver.firefox.service import Service
 
-      driver.get("https://admin.stage.e2ro.com/networks/402079")
+    from webdriver_manager.firefox import GeckoDriverManager
 
-      driver.find_element(By.XPATH, '/html/body/div/div/div[2]/div/div/div/button').click()
+    from selenium.webdriver.common.by import By
 
-      time.sleep(60)
+    driver = webdriver.Firefox(service=Service(executable_path=GeckoDriverManager().install()))
 
-      stress_itr = 5
+    driver.get("https://admin.stage.e2ro.com/networks/402079")
 
-      b = 0
+    driver.find_element(By.XPATH, '/html/body/div/div/div[2]/div/div/div/button').click()
 
-      for i in range(0, stress_itr):
+    time.sleep(60)
 
-      print("iterations:", i)
+    stress_itr = 5
 
-      driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
+    b = 0
 
-          time.sleep(10)
+    for i in range(0, stress_itr):
 
-          driver.find_element(By.XPATH, "//button[text()='Reboot']").click()
+    print("iterations:", i)
 
-          print(driver.title)
+    driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
 
-          time.sleep(170)
+        time.sleep(10)
 
-          driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
+        driver.find_element(By.XPATH, "//button[text()='Reboot']").click()
 
-          time.sleep(10)
+        print(driver.title)
 
-          if driver.find_element(By.XPATH, "//*[@class='label label-default']").text == "0":
+        time.sleep(170)
 
-              print("False, Iteration has failed, proceeding to next Iteration")
+        driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
 
-          else:
+        time.sleep(10)
 
-              driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
+        if driver.find_element(By.XPATH, "//*[@class='label label-default']").text == "0":
 
-              driver.find_element(By.XPATH, "//a[@class='collapsed' and text()='Connected Devices']").click()
+            print("False, Iteration has failed, proceeding to next Iteration")
 
-              time.sleep(10)
+        else:
 
-              text = driver.find_element(By.XPATH, "//div[@class='eo-table eo-table-striped ']").text
+            driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
 
-              print(text)
+            driver.find_element(By.XPATH, "//a[@class='collapsed' and text()='Connected Devices']").click()
 
-              time.sleep(10)
+            time.sleep(10)
 
-              driver.find_element(By.XPATH, "//a[@class='' and text()='Connected Devices']").click()
+            text = driver.find_element(By.XPATH, "//div[@class='eo-table eo-table-striped ']").text
 
-              time.sleep(60)
+            print(text)
 
-              driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
+            time.sleep(10)
 
-              b = b+1
+            driver.find_element(By.XPATH, "//a[@class='' and text()='Connected Devices']").click()
 
-      print(b, "out of 5")
+            time.sleep(60)
+
+            driver.find_element(By.XPATH, "//button[@class='ant-btn ant-btn-primary ant-btn-sm']").click()
+
+            b = b+1
+
+    print(b, "out of 5")
