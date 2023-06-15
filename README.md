@@ -15,7 +15,7 @@ Instruction to use the script:
 
 Note: Attached video logs in jira [CONN-28828](https://eeroinc.atlassian.net/browse/CONN-28828)
 
-Stress reboot Code:
+Java Code:
 https://drive.corp.amazon.com/documents/rraymn@/EERO%20Automatio/Advance%20Setting/C2688.java
 
 Code:
