@@ -1,4 +1,4 @@
-[CONN-28828](https://eeroinc.atlassian.net/browse/CONN-28828) - EERO automation - IPv4 Reservations for client device/DHCP remove static reservation 
+QA-5516 - https://eeroinc.atlassian.net/browse/QA-5516 - EERO automation - Guest network in Bridge mode
 
 [Problem] Automate  IPv4 Reservations for client device/DHCP remove static reservation 
 
