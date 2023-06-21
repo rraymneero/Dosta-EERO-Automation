@@ -1,0 +1,11 @@
+EERO automation - Bridge mode - Changing Nickname
+
+[Problem] Automate Change nick name in bridge mode
+
+[Solution] Added Appium Java code which automates Dogfood APP.
+
+[Test] Tested locally in Eclipse.
+
+[tested case link] https://testrail.eero.amazon.dev/index.php?/cases/view/2726&group_by=cases:section_id&group_order=asc&display_deleted_cases=0&group_id=3714
+
+Jira : https://eeroinc.atlassian.net/browse/QA-5516
